@@ -425,6 +425,88 @@ h1 {
   text-transform: uppercase;
 }
 
+.catalog {
+  width: 100%;
+  max-width: none;
+  padding-inline: max(18px, calc((100% - 1240px) / 2));
+  background:
+    radial-gradient(circle at 80% 16%, rgba(213, 155, 54, 0.14), transparent 28%),
+    linear-gradient(180deg, #fbf5eb, #eef4e7);
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.catalog-card {
+  display: grid;
+  grid-template-rows: 330px auto;
+  border: 1px solid rgba(78, 109, 68, 0.18);
+  background: rgba(255, 250, 241, 0.82);
+  box-shadow: 0 22px 60px rgba(47, 74, 53, 0.1);
+  overflow: hidden;
+}
+
+.catalog-card img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform 450ms ease;
+}
+
+.catalog-card:hover img {
+  transform: scale(1.04);
+}
+
+.catalog-card div {
+  padding: 24px;
+}
+
+.catalog-card span {
+  display: inline-flex;
+  margin-bottom: 14px;
+  color: var(--moss);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.catalog-card h3 {
+  margin: 0 0 10px;
+  color: var(--fern);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.catalog-card p {
+  min-height: 104px;
+  margin: 0 0 20px;
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+.catalog-card a {
+  display: inline-flex;
+  color: var(--fern);
+  font-weight: 800;
+  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(78, 109, 68, 0.34);
+  padding-bottom: 5px;
+}
+
+.catalog-note {
+  max-width: 720px;
+  margin: 28px auto 0;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.7;
+  font-size: 0.94rem;
+}
+
 .wedding-story {
   position: relative;
   min-height: 820px;
@@ -862,7 +944,8 @@ textarea { resize: vertical; }
   .mobile-toggle { display: grid; }
   .site-header.open .mobile-menu { display: grid; }
 
-  .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .service-grid,
+  .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .service-card { min-height: 560px; }
 }
 
@@ -943,6 +1026,7 @@ textarea { resize: vertical; }
   }
 
   .service-grid,
+  .catalog-grid,
   .gallery-grid,
   .contact-form {
     grid-template-columns: 1fr;
