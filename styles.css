@@ -1,14 +1,21 @@
 :root {
   color-scheme: light;
-  --paper: #f8f3ea;
-  --paper-2: #fffcf6;
-  --sage: #66765a;
-  --sage-deep: #354333;
-  --rose: #b98576;
+  --paper: #f7f1e5;
+  --paper-2: #fffaf1;
+  --leaf: #78945f;
+  --leaf-soft: #dfe8d4;
+  --moss: #4e6d44;
+  --fern: #244635;
+  --sage: #6f8661;
+  --sage-deep: #2f4a35;
+  --rose: #c78691;
+  --petal: #f3d8d1;
+  --marigold: #d59b36;
+  --sky-wash: #dbe9df;
   --ink: #221f1a;
   --muted: #756d62;
-  --line: rgba(34, 31, 26, 0.11);
-  --shadow: 0 28px 80px rgba(47, 42, 34, 0.12);
+  --line: rgba(47, 74, 53, 0.15);
+  --shadow: 0 28px 80px rgba(47, 74, 53, 0.14);
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: "Inter", Arial, sans-serif;
 }
@@ -22,7 +29,10 @@ html {
 
 body {
   margin: 0;
-  background: var(--paper);
+  background:
+    radial-gradient(circle at 8% 18%, rgba(223, 232, 212, 0.82), transparent 30%),
+    radial-gradient(circle at 92% 10%, rgba(243, 216, 209, 0.55), transparent 28%),
+    linear-gradient(180deg, #f7f1e5 0%, #eef3e7 48%, #fbf4ea 100%);
   color: var(--ink);
   font-family: var(--sans);
   text-rendering: optimizeLegibility;
@@ -58,7 +68,7 @@ button { cursor: pointer; }
 .site-header.scrolled,
 .site-header.open {
   padding-block: 12px;
-  background: rgba(248, 243, 234, 0.86);
+  background: rgba(247, 241, 229, 0.88);
   backdrop-filter: blur(18px);
   box-shadow: 0 10px 36px rgba(35, 31, 26, 0.09);
 }
@@ -124,9 +134,9 @@ button { cursor: pointer; }
 }
 
 .btn:hover { transform: translateY(-2px); }
-.btn-dark { background: var(--ink); color: white; }
+.btn-dark { background: var(--fern); color: white; }
 .btn-light { background: rgba(255, 252, 246, 0.94); color: var(--ink); }
-.btn-outline { border-color: var(--line); color: var(--ink); background: transparent; }
+.btn-outline { border-color: rgba(78, 109, 68, 0.28); color: var(--fern); background: rgba(223, 232, 212, 0.28); }
 .btn-outline-light { border-color: rgba(255,255,255,0.55); color: white; background: rgba(255,255,255,0.05); }
 
 .mobile-toggle {
@@ -189,8 +199,8 @@ button { cursor: pointer; }
 .hero-shade {
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(24, 26, 19, 0.62), rgba(24, 26, 19, 0.22) 52%, rgba(24, 26, 19, 0.48)),
-    linear-gradient(180deg, rgba(24, 26, 19, 0.18), rgba(24, 26, 19, 0.52));
+    linear-gradient(90deg, rgba(20, 43, 32, 0.68), rgba(40, 76, 51, 0.18) 52%, rgba(43, 55, 29, 0.48)),
+    linear-gradient(180deg, rgba(84, 113, 57, 0.16), rgba(22, 36, 25, 0.56));
 }
 
 .hero-content {
@@ -255,6 +265,25 @@ h1 {
   padding: clamp(72px, 10vw, 132px) 0;
 }
 
+.services,
+.instagram {
+  width: 100%;
+  max-width: none;
+  padding-inline: max(18px, calc((100% - 1240px) / 2));
+}
+
+.services {
+  background:
+    linear-gradient(135deg, rgba(223, 232, 212, 0.86), rgba(255, 250, 241, 0.82) 46%, rgba(243, 216, 209, 0.42)),
+    var(--paper);
+}
+
+.process {
+  background:
+    linear-gradient(180deg, rgba(255, 250, 241, 0.38), rgba(219, 233, 223, 0.56));
+  border-block: 1px solid rgba(78, 109, 68, 0.12);
+}
+
 .split {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.75fr);
@@ -298,7 +327,7 @@ h1 {
   margin: 26px 0 6px;
   padding: 12px 18px 12px 12px;
   border: 1px solid var(--line);
-  background: rgba(255, 252, 246, 0.74);
+  background: linear-gradient(135deg, rgba(255, 250, 241, 0.84), rgba(223, 232, 212, 0.64));
 }
 
 .owner-card img {
@@ -338,7 +367,7 @@ h1 {
 .wedding-copy li {
   border-top: 1px solid var(--line);
   padding: 13px 0;
-  color: var(--sage-deep);
+  color: var(--fern);
   font-weight: 600;
 }
 
@@ -352,7 +381,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
-  background: var(--line);
+  background: rgba(78, 109, 68, 0.18);
   border: 1px solid var(--line);
 }
 
@@ -360,7 +389,7 @@ h1 {
   min-height: 620px;
   display: grid;
   grid-template-rows: 1fr auto;
-  background: var(--paper-2);
+  background: linear-gradient(180deg, var(--paper-2), #f3eadb);
   overflow: hidden;
 }
 
@@ -378,6 +407,7 @@ h1 {
 .service-card h3 {
   margin: 0 0 12px;
   font-size: 2rem;
+  color: var(--fern);
 }
 
 .service-card p {
@@ -388,7 +418,7 @@ h1 {
 }
 
 .service-card a {
-  color: var(--sage-deep);
+  color: var(--moss);
   font-weight: 700;
   font-size: 0.78rem;
   letter-spacing: 0.12em;
@@ -409,7 +439,9 @@ h1 {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(25, 28, 20, 0.74), rgba(25, 28, 20, 0.22) 65%, rgba(25, 28, 20, 0.48));
+  background:
+    linear-gradient(90deg, rgba(23, 55, 39, 0.78), rgba(31, 73, 43, 0.18) 65%, rgba(68, 57, 31, 0.44)),
+    linear-gradient(180deg, rgba(199, 134, 145, 0.08), rgba(18, 32, 24, 0.54));
 }
 
 .wedding-media,
@@ -535,8 +567,8 @@ h1 {
   place-items: center;
   border: 1px solid var(--line);
   border-radius: 50%;
-  background: var(--paper);
-  color: var(--sage);
+  background: linear-gradient(135deg, var(--paper-2), var(--leaf-soft));
+  color: var(--moss);
   font-weight: 700;
 }
 
@@ -567,7 +599,7 @@ h1 {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: rgba(248, 243, 234, 0.62);
+  background: linear-gradient(135deg, rgba(223, 232, 212, 0.72), rgba(247, 241, 229, 0.48), rgba(243, 216, 209, 0.54));
 }
 
 .quote-copy {
@@ -592,7 +624,7 @@ h1 {
   min-height: 270px;
   padding: 34px;
   border: 1px solid var(--line);
-  background: var(--paper-2);
+  background: linear-gradient(180deg, var(--paper-2), rgba(223, 232, 212, 0.42));
 }
 
 .testimonial-card p {
@@ -618,6 +650,7 @@ h1 {
 .instagram-grid a {
   aspect-ratio: 1;
   overflow: hidden;
+  background: var(--leaf-soft);
 }
 
 .instagram-grid img {
@@ -629,7 +662,10 @@ h1 {
 .instagram-grid a:hover img { transform: scale(1.05); }
 
 .contact {
-  background: var(--sage-deep);
+  background:
+    radial-gradient(circle at 14% 18%, rgba(213, 155, 54, 0.24), transparent 28%),
+    radial-gradient(circle at 88% 8%, rgba(199, 134, 145, 0.18), transparent 24%),
+    linear-gradient(135deg, #173324, var(--fern) 55%, #536b3b);
   color: white;
   padding: clamp(72px, 10vw, 132px) 18px;
 }
