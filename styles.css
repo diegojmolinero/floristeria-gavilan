@@ -200,8 +200,10 @@ button { cursor: pointer; }
 .hero-shade {
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(20, 43, 32, 0.68), rgba(40, 76, 51, 0.18) 52%, rgba(43, 55, 29, 0.48)),
-    linear-gradient(180deg, rgba(84, 113, 57, 0.16), rgba(22, 36, 25, 0.56));
+    radial-gradient(circle at 82% 18%, rgba(213, 155, 54, 0.22), transparent 24%),
+    radial-gradient(circle at 18% 80%, rgba(199, 134, 145, 0.2), transparent 28%),
+    linear-gradient(90deg, rgba(20, 43, 32, 0.76), rgba(40, 76, 51, 0.24) 52%, rgba(43, 55, 29, 0.56)),
+    linear-gradient(180deg, rgba(84, 113, 57, 0.16), rgba(22, 36, 25, 0.62));
 }
 
 .hero-content {
@@ -247,6 +249,48 @@ h1 {
   justify-content: center;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+.hero-instagram {
+  position: absolute;
+  right: clamp(18px, 4vw, 58px);
+  bottom: clamp(28px, 5vw, 64px);
+  z-index: 1;
+  width: min(360px, calc(100% - 36px));
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid rgba(255,255,255,0.24);
+  background: rgba(18, 42, 30, 0.52);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 22px 64px rgba(0,0,0,0.24);
+}
+
+.hero-instagram img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.hero-instagram span {
+  display: block;
+  margin-bottom: 4px;
+  color: rgba(255,255,255,0.72);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero-instagram strong {
+  display: block;
+  color: white;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  line-height: 1;
 }
 
 .scroll-cue {
@@ -730,6 +774,97 @@ h1 {
 .gallery-item:hover::after,
 .gallery-item:hover span { opacity: 1; transform: translateY(0); }
 
+.before-after {
+  width: 100%;
+  max-width: none;
+  padding-inline: max(18px, calc((100% - 1240px) / 2));
+  background:
+    radial-gradient(circle at 15% 20%, rgba(213, 155, 54, 0.15), transparent 26%),
+    radial-gradient(circle at 88% 76%, rgba(120, 148, 95, 0.26), transparent 30%),
+    linear-gradient(180deg, #fbf4ea, #e9f1df);
+}
+
+.transform-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid rgba(78, 109, 68, 0.18);
+  background: rgba(78, 109, 68, 0.18);
+}
+
+.transform-card {
+  min-height: 560px;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  background: var(--paper-2);
+  overflow: hidden;
+}
+
+.transform-card.after {
+  background: linear-gradient(180deg, #f7f4e8, var(--leaf-soft));
+}
+
+.transform-card img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.plain-space {
+  min-height: 340px;
+  display: grid;
+  align-content: end;
+  gap: 18px;
+  padding: 34px;
+  background:
+    linear-gradient(90deg, rgba(117, 109, 98, 0.14) 1px, transparent 1px),
+    linear-gradient(180deg, #ece5da, #f8f3ea);
+  background-size: 42px 42px, auto;
+}
+
+.plain-space span {
+  display: block;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(117, 109, 98, 0.22);
+}
+
+.plain-space span:nth-child(1) { width: 72%; }
+.plain-space span:nth-child(2) { width: 52%; }
+.plain-space span:nth-child(3) { width: 84%; }
+
+.plain-space.shop {
+  background:
+    linear-gradient(90deg, rgba(117, 109, 98, 0.12) 1px, transparent 1px),
+    linear-gradient(135deg, #eee9df, #f9f5ed);
+  background-size: 36px 36px, auto;
+}
+
+.transform-copy {
+  padding: 28px;
+}
+
+.transform-copy small {
+  display: inline-flex;
+  margin-bottom: 12px;
+  color: var(--moss);
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.transform-copy h3 {
+  margin: 0 0 10px;
+  color: var(--fern);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.transform-copy p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
 .center-action {
   display: flex;
   justify-content: center;
@@ -1130,7 +1265,8 @@ textarea { resize: vertical; }
 
   .service-grid,
   .catalog-grid,
-  .need-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .need-grid,
+  .transform-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .service-card { min-height: 560px; }
 }
 
@@ -1217,9 +1353,25 @@ textarea { resize: vertical; }
   .service-grid,
   .catalog-grid,
   .need-grid,
+  .transform-grid,
   .gallery-grid,
   .contact-form {
     grid-template-columns: 1fr;
+  }
+
+  .hero-instagram {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin-top: 28px;
+  }
+
+  .hero {
+    padding-bottom: 44px;
+  }
+
+  .transform-card {
+    min-height: auto;
   }
 
   .need-card {
